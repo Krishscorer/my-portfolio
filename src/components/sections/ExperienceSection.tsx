@@ -88,7 +88,7 @@ const experiences = [
     title: "Trainee",
     company: "Kumar Internationals (B2B)",
     period: "Jan, 2017 - Dec, 2019",
-    duration: "1+ Year",
+    duration: "2+ Year",
     responsibilities: [
       "Ensured timely Purchase Order booking in SAP with zero commercial errors",
       "Closed Product First Information Sheet (PFIS) internally and externally",

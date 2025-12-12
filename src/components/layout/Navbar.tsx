@@ -59,9 +59,11 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <Button variant="hero" size="sm">
-                <Download className="w-4 h-4" />
-                Resume
+              <Button variant="hero" size="sm" asChild>
+                <a href="/my-portfolio/Krishna_Lebenslauf_CV.pdf" download="Krishna_Lebenslauf_CV.pdf">
+                  <Download className="w-4 h-4" />
+                  Resume
+                </a>
               </Button>
             </div>
 
@@ -98,9 +100,11 @@ const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
-                <Button variant="hero" className="mt-4">
-                  <Download className="w-4 h-4" />
-                  Download Resume
+                <Button variant="hero" className="mt-4" asChild>
+                  <a href="/my-portfolio/Krishna_Lebenslauf_CV.pdf" download="Krishna_Lebenslauf_CV.pdf">
+                    <Download className="w-4 h-4" />
+                    Download Resume
+                  </a>
                 </Button>
               </div>
             </nav>
