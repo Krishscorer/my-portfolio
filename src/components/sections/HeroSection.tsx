@@ -1,15 +1,43 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, Sparkles } from "lucide-react";
+import { Download, ArrowRight, Sparkles, Mail, Phone, MapPin, Github, Linkedin, Twitter, Star, Heart, Zap, Code, Database, TrendingUp } from "lucide-react";
 import profilePic from "@/krish.png";
 
 const HeroSection = () => {
+  // Array of icon components for background animation
+  const backgroundIcons = [Mail, Phone, MapPin, Github, Linkedin, Twitter, Star, Heart, Zap, Code, Database, TrendingUp];
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient hero-grid">
-      {/* Floating shapes */}
+      {/* Existing floating shapes */}
       <div className="floating-shape w-96 h-96 bg-primary/20 -top-20 -right-20" />
       <div className="floating-shape w-72 h-72 bg-primary/15 bottom-20 -left-20" style={{ animationDelay: "-7s" }} />
       <div className="floating-shape w-48 h-48 bg-primary/10 top-1/3 right-1/4" style={{ animationDelay: "-14s" }} />
+      
+      {/* New animated background icons */}
+      {backgroundIcons.map((Icon, index) => (
+        <motion.div
+          key={index}
+          className="absolute text-primary/10"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            fontSize: `${Math.random() * 24 + 16}px`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 10 + Math.random() * 10,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+          }}
+        >
+          <Icon />
+        </motion.div>
+      ))}
 
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -69,9 +97,11 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button variant="hero" size="lg">
-                <Download className="w-5 h-5" />
-                Download Resume
+              <Button variant="hero" size="lg" asChild>
+                <a href="/Krishna Lebenslauf CV.pdf" download="Krishna_Lebenslauf_CV.pdf">
+                  <Download className="w-5 h-5" />
+                  Download Resume
+                </a>
               </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <a href="#projects">

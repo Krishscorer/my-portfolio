@@ -10,7 +10,11 @@ import {
   BarChart3, 
   Lightbulb, 
   FileText,
-  Settings
+  Settings,
+  TrendingUp,
+  PieChart,
+  Calendar,
+  MessageSquare
 } from "lucide-react";
 
 const strengths = [
@@ -25,12 +29,38 @@ const strengths = [
   { icon: Zap, label: "Marketing Automation Tools" },
 ];
 
+const floatingIcons = [TrendingUp, PieChart, Calendar, MessageSquare, BarChart3, Target];
+
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-background relative">
+    <section id="about" className="py-24 bg-background relative overflow-hidden">
+      {/* Animated background icons */}
+      {floatingIcons.map((Icon, index) => (
+        <motion.div
+          key={index}
+          className="absolute text-primary/5"
+          style={{
+            top: `${20 + (index * 10)}%`,
+            right: `${5 + (index % 3) * 8}%`,
+            fontSize: `${20 + (index % 3) * 10}px`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, 0],
+          }}
+          transition={{
+            duration: 8 + index,
+            repeat: Infinity,
+            delay: index * 0.5,
+          }}
+        >
+          <Icon />
+        </motion.div>
+      ))}
+      
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
