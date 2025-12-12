@@ -98,7 +98,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button variant="hero" size="lg" asChild>
-                <a href="/Krishna Lebenslauf CV.pdf" download="Krishna_Lebenslauf_CV.pdf">
+                <a href="/Krishna_Lebenslauf_CV.pdf" download="Krishna_Lebenslauf_CV.pdf">
                   <Download className="w-5 h-5" />
                   Download Resume
                 </a>
